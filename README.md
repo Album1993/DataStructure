@@ -1,2 +1,10 @@
-# DataStructure
-# DataStructure
+# 数据结构 c实现
+
+------
+
+实现所有基本数据结构
+--
+
+###链表：(Linear List);
+> * 链表的插入，删除，创建，查询，打印，销毁
+
