@@ -14,7 +14,7 @@
 #include "Status.h"
 
 #define LIST_INIT_SIZE 100 // init size of list
-#define LISTINCREMENT  10  // crease size every time
+#define LISTINCREMENT  10  // increase size every time
 
 #ifndef LELEMENTTYPE_SQ
 #define LELEMENTTYPE_SQ
@@ -23,8 +23,8 @@ typedef int LElementType_Sq; // type of elements
 
 typedef struct {
     LElementType_Sq * elem;
-    int length;
-    int listsize;
+    int length;    //current length
+    int listsize;  //total length
 }SqList;
 
 // init
@@ -33,7 +33,7 @@ Status InitList_Sq(SqList * L);
 // clear
 void ClearList_Sq (SqList * L);
 
-// destkory
+// destory
 void DestoryList_Sq(SqList * L);
 
 /**
