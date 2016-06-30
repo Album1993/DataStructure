@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		693CF7E61D24EEE8009D2C71 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 693CF7E51D24EEE8009D2C71 /* main.c */; };
+		693CF7EE1D24EF56009D2C71 /* SequenceList.c in Sources */ = {isa = PBXBuildFile; fileRef = 693CF7EC1D24EF56009D2C71 /* SequenceList.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,9 @@
 /* Begin PBXFileReference section */
 		693CF7E21D24EEE8009D2C71 /* LinearList */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LinearList; sourceTree = BUILT_PRODUCTS_DIR; };
 		693CF7E51D24EEE8009D2C71 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		693CF7EC1D24EF56009D2C71 /* SequenceList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SequenceList.c; sourceTree = "<group>"; };
+		693CF7ED1D24EF56009D2C71 /* SequenceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceList.h; sourceTree = "<group>"; };
+		693CF7EF1D24F017009D2C71 /* Status.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,9 @@
 			isa = PBXGroup;
 			children = (
 				693CF7E51D24EEE8009D2C71 /* main.c */,
+				693CF7EC1D24EF56009D2C71 /* SequenceList.c */,
+				693CF7ED1D24EF56009D2C71 /* SequenceList.h */,
+				693CF7EF1D24F017009D2C71 /* Status.h */,
 			);
 			path = LinearList;
 			sourceTree = "<group>";
@@ -118,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				693CF7EE1D24EF56009D2C71 /* SequenceList.c in Sources */,
 				693CF7E61D24EEE8009D2C71 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
