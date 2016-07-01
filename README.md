@@ -43,5 +43,5 @@ implement all simple data structure
 > * 删除
 > * 遍历
 
-#### 链表何必 (Linear union)
+#### 链表合并 (Linear union)
 > * 合并
