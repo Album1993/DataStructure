@@ -19,7 +19,8 @@ implement all simple data structure
 > * delete
 > * iterate the list in certain rule
 
-
+#### sequence union (Linear union)
+> * union
 
 # 数据结构 c实现
 
@@ -41,3 +42,6 @@ implement all simple data structure
 > * 插入
 > * 删除
 > * 遍历
+
+#### 链表何必 (Linear union)
+> * 合并
