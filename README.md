@@ -22,6 +22,11 @@ implement all simple data structure
 #### sequence union (Linear union)
 > * union
 
+#### sort two arrays into one array in descending order (MergeSqList)
+> * MergeSqList_1(use insert function)
+> * MergeSqList_2(use pointer address)
+
+
 # 数据结构 c实现
 
 ------
@@ -45,3 +50,7 @@ implement all simple data structure
 
 #### 链表合并 (Linear union)
 > * 合并
+
+#### 链表有序排列 (MergeSqList)
+> * MergeSqList_1(使用插入方法)
+> * MergeSqList_2(使用指针)
