@@ -82,6 +82,8 @@ implement all simple data structure
 
 > * StackTraverse_Sq(SqStack s,void(Visit)(SElemType_Sq));
 
+#### useage of stack ,Decimal to octal
+> * conversionNum(e);
 
 # 数据结构 c实现
 
@@ -167,3 +169,5 @@ implement all simple data structure
 
 > * StackTraverse_Sq(SqStack s,void(Visit)(SElemType_Sq));
 
+#### 栈的使用 十进制转换为八进制
+> * conversionNum(e);
