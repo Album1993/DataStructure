@@ -62,6 +62,27 @@ implement all simple data structure
 > * delete
 > * iterate the list
 
+###(stack);
+#### Sequence stack
+> * InitList_Sq(SqStack *S);
+
+> * DestoryStock_Sq(SqStack *S);
+
+> * ClearStack_Sq(SqStack *S);
+
+> * StackEmpty_Sq(SqStack S);
+
+> * StackLength_Sq(SqStack S);
+
+> * GetTop_Sq(SqStack s,SElemType_Sq *e);
+
+> * Push_sq (SqStack *s,SElemType_Sq e);
+
+> * Pop_Sq(SqStack *s,SElemType_Sq *e);
+
+> * StackTraverse_Sq(SqStack s,void(Visit)(SElemType_Sq));
+
+
 # 数据结构 c实现
 
 ------
@@ -125,3 +146,24 @@ implement all simple data structure
 > * 插入
 > * 删除
 > * 遍历
+
+###栈：(stack);
+#### 普通栈
+> * InitList_Sq(SqStack *S);
+
+> * DestoryStock_Sq(SqStack *S);
+
+> * ClearStack_Sq(SqStack *S);
+
+> * StackEmpty_Sq(SqStack S);
+
+> * StackLength_Sq(SqStack S);
+
+> * GetTop_Sq(SqStack s,SElemType_Sq *e);
+
+> * Push_sq (SqStack *s,SElemType_Sq e);
+
+> * Pop_Sq(SqStack *s,SElemType_Sq *e);
+
+> * StackTraverse_Sq(SqStack s,void(Visit)(SElemType_Sq));
+
