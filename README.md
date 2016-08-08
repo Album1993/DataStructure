@@ -88,6 +88,29 @@ implement all simple data structure
 #####LineEdit
 > * LineEdit(e);
 
+#####Maze
+> * typedef int MazeType;
+
+> * void InitMaze(MazeType maze[][N],Postype *start,Postype *end);
+
+> * void PaintMaze(MazeType maze[][N]);
+
+> * void ShowMaze(MazeType maze[][N]);
+
+> * Status EqualPosType(Postype a,Postype b);
+
+> * Status Pass(Postype seat,MazeType maze[][N]);
+
+> * void FootPrint(Postype seat,MazeType maze[][N]);
+
+> * void SetSElemType(SElemType_Sq *e, int ord,Postype seat, int di);
+
+> * Postype NextPos(Postype seat, int di);
+
+> * Status IsCross(Postype seat);
+
+> * void MarkPrint(Postype seat,MazeType maze[][N]);
+
 # 数据结构 c实现
 
 ------
@@ -177,3 +200,17 @@ implement all simple data structure
 > * conversionNum(e);
 #####行编辑程序
 > * LineEdit(e);
+#####迷宫
+> * typedef int MazeType;
+> * void InitMaze(MazeType maze[][N],Postype *start,Postype *end);
+> * void PaintMaze(MazeType maze[][N]);
+> * void ShowMaze(MazeType maze[][N]);
+> * Status EqualPosType(Postype a,Postype b);
+> * Status Pass(Postype seat,MazeType maze[][N]);
+> * void FootPrint(Postype seat,MazeType maze[][N]);
+> * void SetSElemType(SElemType_Sq *e, int ord,Postype seat, int di);
+> * Postype NextPos(Postype seat, int di);
+> * Status IsCross(Postype seat);
+> * void MarkPrint(Postype seat,MazeType maze[][N]);
+
+
