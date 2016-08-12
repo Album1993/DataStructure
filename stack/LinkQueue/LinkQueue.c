@@ -18,5 +18,5 @@ typedef struct QNode {
 typedef QNode *QueuePtr;
 
 typedef struct {
-    QueuePtr 
+    QueuePtr
 };
