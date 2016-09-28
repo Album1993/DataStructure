@@ -7,20 +7,23 @@
 Status CreateSMatrix_RL(FILE *fp, int n,...) {
     int count,k;
     RLSMatrix *M;
+
     if (n < 1)
         return ERROR;
+
     va_list ap;
     va_start(ap,n);
 
     for (count = 1 ; count <= n; ++count) {
         M = va_arg(ap,RLSMatrix *);
-        for (k = 0; k <= MAXRC; ++k)
+        for (k = 0; k <= MAXRC; ++k) // 初始化数组rpos
             (*M).rpos[k] = 0;
+
         Scanf(fp,"%d%d%d",&((*M).mu),&((*M).nu),&((*M).tu));
 
         for (k = 1; k <= (*M).tu ; ++k) {
             Scanf(fp,"%d%d%d",&((*M).data[k].i),&((*M).data[k].j),&((*M).data[k].e));
-            if ((*M).rpos[(*M).data[k].i] == 0)
+            if ((*M).rpos[(*M).data[k].i] == 0) //
                 (*M).rpos[(*M).data[k].i] = k;
         }
 

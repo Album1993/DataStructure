@@ -9,8 +9,8 @@
 #include <stdarg.h>
 #include "Status.h"
 
-#define  MAXSIZE 400
-#define  MAXRC 30
+#define  MAXSIZE 400 // 20 * 20 的矩阵
+#define  MAXRC 20   // 单行最大元素
 
 typedef int MELemType_RLSq;
 
@@ -22,9 +22,9 @@ typedef struct
 
 typedef struct
 {
-    Triple data[MAXSIZE+1];  //
-    int rpos[MAXRC + 1];
-    int mu,nu,tu;
+    Triple data[MAXSIZE+1];  //非0元素三元组 data[0] 未用
+    int rpos[MAXRC + 1]; // 各行第一个非0元素的位置表
+    int mu,nu,tu; // 行数 列数 非0个数
 }RLSMatrix;
 
 Status CreateSMatrix_RL(FILE *fp, int n,...);

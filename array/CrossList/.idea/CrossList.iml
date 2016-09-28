@@ -2,12 +2,13 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/RowLinkSparseMatrix.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TestData.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/RowLinkSparseMatrix.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CrossList.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Status.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Scanf.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CrossList.h" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
