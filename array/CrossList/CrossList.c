@@ -2,6 +2,7 @@
 // Created by 张一鸣 on 16/9/17.
 //
 
+
 #include "CrossList.h"
 Status CreateSMatrix_OL(FILE *fp, int n,...) {
     int count,k;
@@ -17,8 +18,10 @@ Status CreateSMatrix_OL(FILE *fp, int n,...) {
     for (count = 1; count <= n; ++count) {
         M = va_arg(ap,CrossList *);
         Scanf(fp,"%d%d%d",&((*M).mu),&((*M).nu),&((*M).tu));
-
         (*M).rhead = (OLink *)malloc(((*M).mu + 1)* sizeof(OLink));
+        if (!(*M).rhead)
+            exit(OVERFLOW);
+        (*M).chead = (OLink *)malloc(((*M).nu + 1) * sizeof(OLink));
         if (!(*M).chead)
             exit(OVERFLOW);
         for (k = 0; k <= (*M).mu; ++k) {
@@ -29,6 +32,7 @@ Status CreateSMatrix_OL(FILE *fp, int n,...) {
         }
 
         for (k = 1; k <= (*M).tu; ++k) {
+            printf("+\n");
             p = (OLNode *)malloc(sizeof(OLNode));
             if (!p)
                 exit(OVERFLOW);
@@ -430,7 +434,7 @@ Status MultiSMatrix_OL(CrossList M,CrossList N,CrossList *Q) {
     }
 
     Q->mu = M.mu;
-    Q->nu = M.nu;
+    Q->nu = N.nu;
     Q->tu = 0;
 
     Q->rhead = (OLink *)malloc((Q->mu + 1) * sizeof(OLink));
@@ -455,46 +459,39 @@ Status MultiSMatrix_OL(CrossList M,CrossList N,CrossList *Q) {
                 e = 0;
 
                 while (pm && pn) {
-                    pm = M.rhead[m_row];
-                    pn = N.chead[n_col];
-                    e = 0;
-
-                    while (pm && pn) {
-                        if (pm->j < pn->j)
-                            pm = pm->right;
-                        else if (pm->j > pn->j)
-                            pn = pn->down;
-                        else {
-                            e += pm->e * pn->e;
-                            pm = pm->right;
-                            pn = pn->down;
-                        }
+                    if (pm->j < pn->i)
+                        pm = pm->right;
+                    else if (pm->j > pn->j)
+                        pn = pn->down;
+                    else {
+                        e += pm->e * pn->e;
+                        pm = pm->right;
+                        pn = pn->down;
                     }
-                    if (e) {
-                        p = (OLNode *)malloc(sizeof(OLNode));
-                        if (!p)
-                            exit(OVERFLOW);
-                        p->i = M.rhead[m_row]->i;
-                        p->j = N.chead[n_col]->j;
-                        p->e = e;
-                        p->right = p->down =NULL;
+                }
+                if (e) {
+                    p = (OLNode *)malloc(sizeof(OLNode));
+                    if (!p)
+                        exit(OVERFLOW);
+                    p->i = M.rhead[m_row]->i;
+                    p->j = M.chead[n_col]->j;
+                    p->e = e;
+                    p->right = p->down = NULL;
 
-                        Q->tu++;
+                    Q->tu++;
 
-                        if (Q->rhead[p->i] == NULL)
-                            Q->rhead[p->i] = p;
-                        else
-                            r->right = p;
-                        r = p;
-
-                        if (Q->chead[p->j] == NULL || Q->chead[p->j]->i > p->i) {
-                            r->down = Q->chead[p->j];
-                            Q->chead[p->j] = r;
-                        } else {
-                            for (l = Q->chead[p->j];(l->down) && (l->down->i < p->i);l = l->down) ;
-                            r->down = l->down;
-                            l->down = r;
-                        }
+                    if (Q->rhead[p->i] == NULL)
+                        Q->rhead[p->i] = p;
+                    else
+                        r->right = p;
+                    r = p;
+                    if (Q->chead[p->j] == NULL || Q->chead[p->j]->i > p->i) {
+                        r->down = Q->chead[p->j];
+                        Q->chead[p->j] = r;
+                    } else {
+                        for (l = Q->chead[p->j];(l->down) && (l->down->i < p->i);l = l->down) ;
+                        r->down = l->down;
+                        l->down = r;
                     }
                 }
             }
@@ -512,6 +509,10 @@ void TransposeSMatrix_OL(CrossList M,CrossList *T) {
 
     T->rhead = (OLink *)malloc((T->mu + 1) * sizeof(OLink));
     if (!T->rhead)
+        exit(OVERFLOW);
+
+    T->chead = (OLink *)malloc((T->nu + 1) * sizeof(OLink));
+    if (!T->chead)
         exit(OVERFLOW);
     for (i = 0; i <= T->mu ; ++i) {
         T->rhead[i] = NULL;
