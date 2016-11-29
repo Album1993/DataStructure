@@ -37,11 +37,6 @@ Status QueueEmpty_L(LinkQueue Q) {
         return FALSE;
 }
 
-<<<<<<< HEAD
-typedef struct {
-    QueuePtr
-};
-=======
 int QueueLength_L(LinkQueue Q) {
     int count = 0;
     QueuePtr p = Q.front;
@@ -101,4 +96,3 @@ void QueueTraverse_L(LinkQueue Q, void(Visit)(QElemType_L)) {
         p = p->next;
     }
 }
->>>>>>> 0a8a36e753b6a69631ef134d6a05252d5495e8dd
