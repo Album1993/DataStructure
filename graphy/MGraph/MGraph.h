@@ -29,7 +29,7 @@ typedef char VertexType_M;
 typedef struct {
     VertexType_M vexs[MAX_VERTEX_NUM + 1];
     AdjMatrix arcs;
-    int vernum,arcnum;
+    int vexnum,arcnum;
     int IncInfo;
     GraphKind kind;
 }MGraph;
