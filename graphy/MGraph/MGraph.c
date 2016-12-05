@@ -113,7 +113,7 @@ Status PutVex_M(MGraph *G,VertexType_M v, VertexType_M value) {
     }
 }
 
-int FirsAdjVex_M(MGraph G,VertexType_M v) {
+int FirstAdjVex_M(MGraph G, VertexType_M v) {
     int k,j,t;
     k = LocateVex_M(G,v);
     if (k) {
@@ -201,16 +201,120 @@ Status DeleteVex_M(MGraph *G,VertexType_M v) {
     return OK;
 }
 
-Status InsertArc_M(MGraph *G,VertexType_M v,VertexType_M w,VRType adj,...);
+Status InsertArc_M(MGraph *G,VertexType_M v,VertexType_M w,VRType adj,...) {
+    int k1,k2;
+    k1 = LocateVex_M(*G,v);
+    k2 = LocateVex_M(*G,w);
 
-Status DeleteArc_M(MGraph *G,VertexType_M v,VertexType_M w);
+    if (!k1 || !k2)
+        return ERROR;
 
-void DFSTraverse_M(MGraph G, void(Visit)(VertexType_M));
+    (*G).arcs[k1][k2].adj = adj;
+    va_list ap;
+    va_start(ap,adj);
+    (*G).arcs[k1][k2].info = va_arg(ap,InfoType);
+    va_end(ap);
 
-void DFS_M(MGraph G, void(Visit)(VertexType_M));
+    if ((*G).kind == UDG || (*G).kind == UDN)
+        (*G).arcs[k2][k1] = (*G).arcs[k1][k2];
+    (*G).arcnum++;
+    return OK;
+}
 
-void BFSTraverse_M(MGraph G, void(Visit)(VertexType_M));
+Status DeleteArc_M(MGraph *G,VertexType_M v,VertexType_M w) {
+    int k1, k2;
+    k1 = LocateVex_M(*G,v);
+    k2 = LocateVex_M(*G,w);
 
-void OutputMGraph(MGraph G);
+    if (!k1 || !k2)
+        return ERROR;
+    if ((*G).kind % 2)
+        (*G).arcs[k1][k2].adj = INFINITY;
+    else
+        (*G).arcs[k1][k2].adj = 0;
 
-void Input(FILE *fp,InfoType * info);
+    if ((*G).kind == UDG || (*G).kind == UDG)
+        (*G).arcs[k2][k1] = (*G).arcs[k1][k2];
+    (*G).arcnum--;
+    return OK;
+}
+
+void DFSTraverse_M(MGraph G, void(Visit)(VertexType_M)) {
+    int v;
+    VisitFunc = Visit;
+    for (v = 1; v <= G.vexnum ; ++v) {
+        visited[v] = FALSE;
+    }
+
+    for (v = 1; v < G.vexnum; v++) {
+        if (!visited[v])
+            DFS_M(G,v);
+    }
+}
+
+void DFS_M(MGraph G, int v) {
+    int w;
+    visited[v] = TRUE;
+    VisitFunc(G.vexs[v]);
+    for (w = FirstAdjVex_M(G, G.vexs[v]);w; w = NextAdjVex_M(G,G.vexs[v],G.vexs[w])) {
+        if (!visited[w])
+            DFS_M(G,w);
+    }
+}
+
+void BFSTraverse_M(MGraph G, void(Visit)(VertexType_M)) {
+    int v,w;
+    LinkQueue Q;
+    QElemType_L e;
+
+    for (v = 1; v <= G.vexnum; v++) {
+        visited[v] = FALSE;
+    }
+
+    InitQueue_L(&Q);
+    for ( v = 1; v <= G.vexnum ; v++) {
+        if(!visited[v]) {
+            visited[v] = TRUE;
+            Visit(G.vexs[v]);
+            EnQueue_L(&Q, v);
+            while (!QueueEmpty_L(Q)) {
+                DeQueue_L(&Q,&e);
+                for (w = FirstAdjVex_M(G,G.vexs[e]); w ;w = NextAdjVex_M(G,G.vexs[e],G.vexs[w])) {
+                    if (!visited[w]) {
+                        visited[w] = TRUE;
+                        Visit(G.vexs[w]);
+                        EnQueue_L(&Q, w);
+                    }
+                }
+            }
+        }
+    }
+}
+
+void OutputMGraph(MGraph G) {
+    int i,j;
+    if (!G.vexnum && !G.arcnum)
+        printf("空图");
+    else {
+        printf(" ");
+        for (i = 0; i <= G.vexnum; i++) {
+            printf("%2c ",G.vexs[i]);
+        }
+        printf("\n");
+
+        for (i = 0; i <= G.vexnum; i++) {
+            printf("%c ",G.vexs[i]);
+            for (j = 1; j <= G.vexnum; j++) {
+                if (G.arcs[i][j].adj == INFINITY)
+                    printf("infinite ");
+                else
+                    printf("%2d ",G.arcs[i][j]);
+            }
+            printf("\n");
+        }
+    }
+}
+
+void Input(FILE *fp,InfoType * info) {
+    
+}

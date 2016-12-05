@@ -24,7 +24,7 @@ int main(int argc, char ** argv)
 
     for (int j = 0; j < 6; ++j) {
         printf("元素%2d 入队\n",2*j);
-        EnQueue(&Q,2*j);
+        EnQueue_L(&Q,2*j);
         printf("累计第%d个元素\n",QueueLength_L(Q));
     }
 

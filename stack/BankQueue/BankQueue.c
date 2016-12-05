@@ -83,7 +83,7 @@ void CustomerArrived() {
 
     i = Minimum(gQ);
 
-    EnQueue(&gQ[i],gCustomerRcd);
+    EnQueue_L(&gQ[i],gCustomerRcd);
 
     Show();
 

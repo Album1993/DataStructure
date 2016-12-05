@@ -52,7 +52,7 @@ VertexType_M GetVet_M(MGraph G, int order);
 
 Status PutVex_M(MGraph *G,VertexType_M v, VertexType_M value);
 
-int FirsAdjVex_M(MGraph G,VertexType_M v);
+int FirstAdjVex_M(MGraph G, VertexType_M v);
 
 int NextAdjVex_M(MGraph G,VertexType_M v,VertexType_M w);
 
@@ -66,7 +66,7 @@ Status DeleteArc_M(MGraph *G,VertexType_M v,VertexType_M w);
 
 void DFSTraverse_M(MGraph G, void(Visit)(VertexType_M));
 
-void DFS_M(MGraph G, void(Visit)(VertexType_M));
+void DFS_M(MGraph G, int v);
 
 void BFSTraverse_M(MGraph G, void(Visit)(VertexType_M));
 

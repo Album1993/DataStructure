@@ -62,7 +62,7 @@ Status GetHead_L(LinkQueue Q,QElemType_L *e) {
     return OK;
 }
 // 元素e入队
-Status EnQueue(LinkQueue *Q,QElemType_L e) {
+Status EnQueue_L(LinkQueue *Q,QElemType_L e) {
     QueuePtr p;
 
     p = (QueuePtr)malloc(sizeof(QNode));
