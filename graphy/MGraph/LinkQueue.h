@@ -7,7 +7,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Status.h"
-#include "Header.h"
+
+typedef int QElemType_L;
 
 typedef struct QNode {
     QElemType_L data;
@@ -34,7 +35,7 @@ int QueueLength_L(LinkQueue Q);
 
 Status GetHead_L(LinkQueue Q,QElemType_L *e);
 // 元素e入队
-Status EnQueue_L(LinkQueue *Q,QElemType_L e);
+Status EnQueue_L(LinkQueue *Q, QElemType_L e);
 // 元素e出队
 Status DeQueue_L(LinkQueue *Q,QElemType_L *e);
 
