@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>LinearList.xcscheme</key>
+		<key>SinglelyLinkedList.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>693CF7E11D24EEE8009D2C71</key>
+		<key>693CF82C1D268381009D2C71</key>
 		<dict>
 			<key>primary</key>
 			<true/>
